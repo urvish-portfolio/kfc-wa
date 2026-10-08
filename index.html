@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Urvishkumar Badreshiya: one trading day of restaurant operations, for the Restaurant General Manager roles at KFC South Lake and Rockingham Beach, WA.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Urvishkumar Badreshiya">
+<meta property="og:description" content="Rosters and labour, stock and waste, food safety, people and payroll, shown through one trading day.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23E4002B'/%3E%3Ctext x='32' y='42' font-family='Arial Narrow, Arial' font-weight='800' font-size='28' text-anchor='middle' fill='white'%3EUB%3C/text%3E%3C/svg%3E">
+<title>Urvishkumar Badreshiya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: a trading day read top to bottom. Sticky clock on the left, order-ticket cards on the right; evidence, brief and FAQ follow as plain sections. */
+:root{
+  --paper:#F7F6F4; --card:#FFFFFF; --ink:#191A23; --muted:#5B5C66; --line:#E3E0DC;
+  --red:#E4002B; --red-ink:#B5001F; --tint:#FBE9EC; --ring-bg:#ECE9E5;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --ease-out:cubic-bezier(.22,1,.36,1);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#14151C; --card:#1C1D26; --ink:#F1F0EE; --muted:#A4A5AF; --line:#2D2E39;
+  --red:#FF3B55; --red-ink:#FF7083; --tint:#2B1A21; --ring-bg:#2A2B35; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#14151C; --card:#1C1D26; --ink:#F1F0EE; --muted:#A4A5AF; --line:#2D2E39;
+  --red:#FF3B55; --red-ink:#FF7083; --tint:#2B1A21; --ring-bg:#2A2B35; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.02;text-wrap:balance;margin:0;letter-spacing:.005em}
+h2{font-size:clamp(34px,5vw,52px);text-transform:uppercase}
+h3{font-size:clamp(24px,3vw,30px)}
+p{margin:0}
+a{color:var(--red-ink);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:4px}
+.eyebrow{font:600 13px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--red-ink)}
+.muted{color:var(--muted)}
+section{padding-block:72px}
+.sec-head{display:grid;gap:14px;max-width:720px;margin-bottom:40px}
+.sec-head p{color:var(--muted);font-size:18px}
+
+/* Header */
+.top{border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding-block:18px}
+.name{font:800 24px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
+.contact{display:flex;flex-wrap:wrap;gap:6px 18px;font:500 14px/1.4 var(--mono);color:var(--muted)}
+.contact span{user-select:all}
+
+/* Hero */
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:48px;align-items:center;padding-block:64px 56px}
+.hero h1{font-size:clamp(46px,7.4vw,92px);text-transform:uppercase;margin-block:14px 22px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.lede{font-size:19px;max-width:58ch}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font:600 15px/1 var(--body);text-decoration:none;border:2px solid var(--ink);color:var(--ink);transition:transform .2s var(--ease-out),background-color .2s var(--ease-out),color .2s var(--ease-out)}
+.btn.primary{background:var(--red);border-color:var(--red);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border-block:1px solid var(--line)}
+.facts div{background:var(--paper);padding:16px 20px;display:grid;gap:2px;min-width:0}
+.facts b{font:600 12px/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.facts span{font-weight:600}
+
+/* Clock */
+.clock{width:100%;max-width:300px;aspect-ratio:1;justify-self:center}
+.clock svg{width:100%;height:100%;overflow:visible}
+.clock .face{fill:var(--card);stroke:var(--line);stroke-width:2}
+.clock .tick{stroke:var(--muted);stroke-width:2;stroke-linecap:round}
+.clock .tick.minor{stroke:var(--line)}
+.clock .num{fill:var(--muted);font:600 13px var(--mono)}
+.clock .dot{fill:var(--card);stroke:var(--red);stroke-width:3}
+.clock .dot.on{fill:var(--red)}
+.clock .hand{stroke:var(--red);stroke-width:5;stroke-linecap:round}
+.clock .hand-m{stroke:var(--ink);stroke-width:3;stroke-linecap:round}
+.clock .pin{fill:var(--ink)}
+.clock-cap{font:600 12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:10px}
+
+/* Day */
+.day-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:56px;align-items:start}
+.rail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);display:grid;gap:22px}
+.phases{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.phases li{display:grid;grid-template-columns:58px minmax(0,1fr);gap:10px;align-items:baseline;padding:8px 12px;border-radius:8px;color:var(--muted);transition:background-color .3s var(--ease-out),color .3s var(--ease-out)}
+.phases li b{font:600 13px var(--mono)}
+.phases li span{font-weight:500;font-size:15px}
+.phases li.on{background:var(--tint);color:var(--ink)}
+.phases li.on b{color:var(--red-ink)}
+.tickets{display:grid;gap:36px}
+.ticket{--cut:9px;background:var(--card);border-radius:14px 14px 0 0;box-shadow:0 1px 0 var(--line),0 10px 30px -18px rgba(25,26,35,.35);
+  -webkit-mask:radial-gradient(circle at 50% 100%,transparent calc(var(--cut) - .5px),#000 var(--cut)) bottom/calc(var(--cut)*2.4) var(--cut) repeat-x,linear-gradient(#000,#000) top/100% calc(100% - var(--cut)) no-repeat;
+          mask:radial-gradient(circle at 50% 100%,transparent calc(var(--cut) - .5px),#000 var(--cut)) bottom/calc(var(--cut)*2.4) var(--cut) repeat-x,linear-gradient(#000,#000) top/100% calc(100% - var(--cut)) no-repeat;
+  padding:0 0 calc(var(--cut) + 18px)}
+.t-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;padding:14px 26px;border-bottom:2px dashed var(--line);font:600 13px/1.3 var(--mono);letter-spacing:.05em;text-transform:uppercase}
+.t-head .time{color:var(--red-ink);font-size:15px}
+.t-head .value{padding:5px 10px;border-radius:999px;background:var(--tint);color:var(--red-ink)}
+.t-body{padding:22px 26px 0;display:grid;gap:14px}
+.t-body p{max-width:64ch}
+.proof{list-style:none;margin:6px 0 0;padding:16px 0 0;border-top:1px solid var(--line);display:grid;gap:8px;font-size:15.5px}
+.proof li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:8px}
+.proof li::before{content:"";width:8px;height:8px;margin-top:.62em;border-radius:2px;background:var(--red)}
+.term{font-style:italic;color:var(--muted)}
+
+/* Numbers */
+.rings{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.ring{display:grid;justify-items:center;text-align:center;gap:12px;min-width:0}
+.ring svg{width:140px;height:140px;max-width:100%}
+.ring .bg{fill:none;stroke:var(--ring-bg);stroke-width:10}
+.ring .fg{fill:none;stroke:var(--red);stroke-width:10;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
+.ring .big{fill:var(--ink);font:700 30px var(--display)}
+.ring p{font-size:15.5px;max-width:24ch}
+.ring p b{display:block;font:700 19px/1.2 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:44px}
+.tiles div{background:var(--card);padding:20px;display:grid;gap:4px;min-width:0}
+.tiles b{font:700 34px/1 var(--display);color:var(--red-ink);font-variant-numeric:tabular-nums}
+.tiles span{font-size:15px;color:var(--muted)}
+
+/* Brief */
+.brief{width:100%;border-collapse:collapse;font-size:16px}
+.brief-box{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.brief th,.brief td{text-align:left;vertical-align:top;padding:16px 20px;border-bottom:1px solid var(--line)}
+.brief tr:last-child td{border-bottom:0}
+.brief th{font:600 12px/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--paper)}
+.brief td:first-child{font-weight:600;width:34%}
+.brief td:first-child q{quotes:"\201C" "\201D"}
+.fit{display:inline-block;margin-top:6px;font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--red-ink)}
+
+/* Route */
+.route-box{position:relative}
+.route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0}
+.route-box::before{content:"";position:absolute;left:0;right:0;top:11px;height:3px;background:var(--line)}
+.route-box .fill{position:absolute;left:0;right:0;top:11px;height:3px;background:var(--red);transform-origin:left center}
+.route li{position:relative;padding:34px 16px 0 0;display:grid;gap:4px;min-width:0}
+.route li::before{content:"";position:absolute;top:3px;left:0;width:19px;height:19px;border-radius:50%;background:var(--paper);border:3px solid var(--red)}
+.route li.next::before{background:var(--red)}
+.route b{font:600 12px/1.3 var(--mono);letter-spacing:.06em;color:var(--red-ink);text-transform:uppercase}
+.route strong{font:700 21px/1.1 var(--display);text-transform:uppercase}
+.route span{font-size:15px;color:var(--muted)}
+
+/* 90 days */
+.plan{display:grid;grid-template-columns:15fr 15fr 30fr 30fr;gap:10px}
+.plan div{min-width:0;display:grid;gap:10px;align-content:start}
+.bar{height:12px;border-radius:999px;background:var(--ring-bg);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--red);transform-origin:left center}
+.plan b{font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--red-ink)}
+.plan strong{font:700 22px/1.1 var(--display);text-transform:uppercase}
+.plan span{font-size:15.5px;color:var(--muted)}
+
+/* FAQ */
+.faq{display:grid;gap:12px;max-width:820px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px}
+.faq summary{cursor:pointer;list-style:none;padding:18px 22px;font:700 22px/1.2 var(--display);text-transform:uppercase;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--red);transition:transform .25s var(--ease-out)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 22px 20px;display:grid;gap:12px;max-width:70ch}
+.faq .a ul{margin:0;padding-left:20px;display:grid;gap:8px}
+
+/* Close */
+.close{border-top:1px solid var(--line);text-align:left}
+.close h2{max-width:20ch}
+.close p{margin-top:18px;color:var(--muted);font:500 14px/1.6 var(--mono)}
+.foot{padding-block:26px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+
+/* Financials */
+.fin-box{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.fin{width:100%;border-collapse:collapse;font-size:16px;min-width:640px}
+.fin th,.fin td{padding:14px 18px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.fin tr:last-child td{border-bottom:0}
+.fin th{font:600 12px/1.3 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--paper)}
+.fin td.n{font:600 16px/1.4 var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.fin td.n.up{color:var(--red-ink)}
+.fin td:first-child{font-weight:600}
+.reads{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:28px}
+.read{border-top:3px solid var(--red);padding-top:16px;display:grid;gap:8px;align-content:start;min-width:0}
+.read b{font:700 22px/1.1 var(--display);text-transform:uppercase}
+.read p{font-size:16px}
+.src{margin-top:22px;font-size:14px;color:var(--muted)}
+.src a{color:var(--red-ink)}
+@media (max-width:960px){.reads{grid-template-columns:1fr}}
+.mba{margin-top:28px;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:8px 28px;padding:20px 24px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.mba b{font:600 12px/1.4 var(--mono);letter-spacing:.07em;text-transform:uppercase;color:var(--red-ink)}
+.mba p{font-size:16px;max-width:72ch}
+@media (max-width:640px){.mba{grid-template-columns:1fr}}
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero .clock{max-width:220px;justify-self:start}
+  .day-grid{grid-template-columns:1fr;gap:28px}
+  .rail{position:static;grid-template-columns:150px minmax(0,1fr);align-items:center}
+  .rail .clock-cap{display:none}
+  .rings,.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .route{grid-template-columns:1fr;gap:22px}
+  .route-box::before,.route-box .fill{left:9px;right:auto;top:0;bottom:0;width:3px;height:auto}
+  .route-box .fill{transform-origin:center top}
+  .route li{padding:0 0 0 36px}
+  .plan{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .rail{grid-template-columns:1fr}
+  .rail .clock{max-width:170px}
+  .t-head,.t-body{padding-inline:18px}
+  .tiles{grid-template-columns:1fr}
+  .plan{grid-template-columns:1fr}
+  section{padding-block:56px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="name">Urvishkumar Badreshiya</div>
+    <div class="contact"><span>urvish.mb@gmail.com</span><span>+91 99988 28555</span><span>linkedin.com/in/urvishkumar-badreshiya</span></div>
+  </div>
+</header>
+
+<main>
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Restaurant General Manager · KFC South Lake &amp; Rockingham Beach, WA</div>
+      <h1>A restaurant is won <em>hour by hour</em></h1>
+      <p class="lede">Eight years in operations, nearly four of them leading quick-service sites in the UK: Greggs, the launch of a new brand's first store at Fresh Bake, and the Shake Shack opening in Birmingham. This page walks through one trading day and shows what I do at each point in it, with the numbers behind each story.</p>
+      <div class="cta">
+        <a class="btn primary" href="#day">Walk the day</a>
+        <a class="btn" href="#brief">Your ad, my evidence</a>
+      </div>
+    </div>
+    <div class="clock" aria-hidden="true" data-clock="hero"></div>
+  </div>
+  <div class="wrap">
+    <div class="facts">
+      <div><b>Based</b><span>India, relocating to Perth</span></div>
+      <div><b>Available</b><span>Immediately</span></div>
+      <div><b>Visa route</b><span>Employer sponsored, subclass 494</span></div>
+      <div><b>Languages</b><span>English, Hindi, Gujarati</span></div>
+    </div>
+  </div>
+</div>
+
+<section id="day">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The trading day</div>
+      <h2>Six moments, six values</h2>
+      <p>The times follow the shape of a normal day in a quick-service restaurant. Each story is real and dated, and each one sits under the Collins value it shows best.</p>
+    </div>
+    <div class="day-grid">
+      <aside class="rail" aria-label="Moments of the day">
+        <div>
+          <div class="clock" aria-hidden="true" data-clock="rail"></div>
+          <div class="clock-cap">Scroll to move the hands</div>
+        </div>
+        <ol class="phases">
+          <li data-for="t1" class="on"><b>10:30</b><span>Before the doors open</span></li>
+          <li data-for="t2"><b>11:00</b><span>The first forecast</span></li>
+          <li data-for="t3"><b>12:00</b><span>Lunch peak</span></li>
+          <li data-for="t4"><b>15:00</b><span>The afternoon lull</span></li>
+          <li data-for="t5"><b>22:00</b><span>Close and count</span></li>
+          <li data-for="t6"><b>22:30</b><span>Handover</span></li>
+        </ol>
+      </aside>
+
+      <div class="tickets">
+        <article class="ticket" id="t1" data-h="10" data-m="30">
+          <div class="t-head"><span class="time">10:30 · Before the doors open</span><span class="value">Operational Excellence</span></div>
+          <div class="t-body">
+            <h3>Walk the travel path, then walk it again</h3>
+            <p>The travel path is a fixed walk of 13 checkpoints, from the outside of the building and the host stand through the hot side, cold side, prep area, chillers and storage to the staff room. At Shake Shack Birmingham I walked it every 90 minutes to two hours, all day. A missing sauce or a fridge running warm is cheap to fix at 10:30 and expensive at 12:30.</p>
+            <ul class="proof">
+              <li><span>NSF food safety audit, March 2025: 98.71%, with no critical findings. <span class="term">NSF is an independent food-safety auditor.</span></span></li>
+              <li><span>Full operations audit in my last week at Birmingham: 99.9%, with the inspector's note "A near perfectly managed Shack!"</span></li>
+              <li><span>5-star EHO rating. <span class="term">EHO is the UK council food-hygiene inspection, scored out of 5.</span></span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="ticket" id="t2" data-h="11" data-m="0">
+          <div class="t-head"><span class="time">11:00 · The first forecast</span><span class="value">Ownership</span></div>
+          <div class="t-body">
+            <h3>Count what tonight needs while there is time to fix it</h3>
+            <p>After a huge trading day at Birmingham, the next delivery arrived short. At 11:00 my forecast showed we would run out of beef patties by about 18:00 and buns an hour later. Friends at other Shake Shack sites sent buns. Nobody could deliver beef, so I called another manager in early to run the floor and drove about an hour and a half each way to collect patties from another store. I was back before 18:00 with 15 patties left, and we traded normally until the 22:00 close.</p>
+            <ul class="proof">
+              <li><span>Set the daily and weekly sales forecasts myself, then planned labour, prep and ordering to them.</span></li>
+              <li><span>Weekly orders across 11 suppliers and about 180 lines, with every delivery checked against its purchase order and shortages chased for credit.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="ticket" id="t3" data-h="12" data-m="0">
+          <div class="t-head"><span class="time">12:00 · Lunch peak</span><span class="value">Customer</span></div>
+          <div class="t-body">
+            <h3>Keep service on time when the plan breaks at the back door</h3>
+            <p>International Burger Day 2025 meant buy-one-get-one-free on every burger, and a queue had formed behind the shutter by 10:30. At 11:00, as we opened, a delivery worth about £4,000 arrived, chilled and frozen stock that could not wait. I moved the two team members on Expo, <span class="term">the station where every order is checked and handed over</span>, to put it away, and ran Expo alone with 15 to 20 orders on the screen. Most of the team could work most stations, so people came across to help whenever their own station allowed. We took about £11,000 that day, roughly double a normal day.</p>
+            <ul class="proof">
+              <li><span>Likelihood to Return in guest feedback rose from 8.1 to 9.3.</span></li>
+              <li><span>Orders delivered in under 7 minutes.</span></li>
+              <li><span>Ran the fry and chicken station myself and trained the crew on it.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="ticket" id="t4" data-h="15" data-m="0">
+          <div class="t-head"><span class="time">15:00 · The afternoon lull</span><span class="value">People at the Heart</span></div>
+          <div class="t-body">
+            <h3>Breaks happen, even on the busiest day</h3>
+            <p>On Burger Day, once the queue eased after 15:00, I covered the team's breaks myself, two people at a time. Under-18s were on my rotas at Greggs, Fresh Bake and Shake Shack, and their hours and breaks were set around the legal limits for young workers.</p>
+            <p>One colleague at Birmingham was struggling with the pace, and I came close to letting him go in his probation. After a shift we talked as friends, and he told me about a condition I hadn't known about. He showed me how to hand him tasks in a way that worked for him. Two months later he was Employee of the Month.</p>
+            <ul class="proof">
+              <li><span>Hired 26 people myself at Birmingham. None of them resigned.</span></li>
+              <li><span>Casework handled through Croner, <span class="term">a UK employment-law advice service</span>, and a briefing before every shift so each person knew the day's purpose.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="ticket" id="t5" data-h="22" data-m="0">
+          <div class="t-head"><span class="time">22:00 · Close and count</span><span class="value">Innovation Mindset</span></div>
+          <div class="t-body">
+            <h3>Read the stock count before reacting to it</h3>
+            <p>One August 2025 count at Birmingham showed stock about £4,000 below where it should have been, with chicken bites the largest line. I compared it with the previous period, when the stock system had been down and the count had swung the other way. Across the two periods the real gap was under £40, and chicken bites was the one line still worth investigating.</p>
+            <p>At Greggs the same habit led to new ways of working: four of each bestselling sandwich on display first thing, savouries baked in small batches through the day, and ordering reset to the real sales pattern. Sales rose 20% and waste fell 30%, with no extra resources.</p>
+            <ul class="proof">
+              <li><span>Wrote the cost-of-goods report twice a month and reviewed the site P&amp;L every period.</span></li>
+              <li><span>Challenged delivery-app refunds line by line and recovered 70% of what Deliveroo refunded from May to July 2025.</span></li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="ticket" id="t6" data-h="22" data-m="30">
+          <div class="t-head"><span class="time">22:30 · Handover</span><span class="value">Positive Impact</span></div>
+          <div class="t-body">
+            <h3>Turn a fix into something the team runs without you</h3>
+            <p>At Fresh Bake, a couple who could neither hear nor speak, both allergic to dairy, were struggling to order. I gave them pen and paper, then showed them each ingredient one by one: an iced latte with oat milk and an iced mocha with almond milk. After their second visit I put a note with their order on the counter and briefed the team, so anyone on shift could serve them. On my last day they cried and took a photo with me.</p>
+            <ul class="proof">
+              <li><span>Co-developed the allergen guide covering 85 products and the 14 regulated allergens.</span></li>
+              <li><span>The opening and closing routines I co-developed for that launch are still in use, as far as I know.</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="numbers" style="background:var(--card)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">The numbers</div>
+      <h2>What this job runs on</h2>
+    </div>
+    <div class="rings">
+      <div class="ring" data-pct="26">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="48"/><circle class="fg" cx="60" cy="60" r="48"/><text class="big" x="60" y="70" text-anchor="middle">&lt;26%</text></svg>
+        <p><b>Crew labour</b>Crew labour cost as a share of sales at Shake Shack Birmingham, against a 30% target</p>
+      </div>
+      <div class="ring" data-pct="98.71">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="48"/><circle class="fg" cx="60" cy="60" r="48"/><text class="big" x="60" y="70" text-anchor="middle">98.7%</text></svg>
+        <p><b>Food safety</b>NSF food safety audit, March 2025, no critical findings</p>
+      </div>
+      <div class="ring" data-pct="93">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="48"/><circle class="fg" cx="60" cy="60" r="48"/><text class="big" x="60" y="70" text-anchor="middle">9.3</text></svg>
+        <p><b>Guests coming back</b>Likelihood to Return out of 10, up from 8.1</p>
+      </div>
+      <div class="ring" data-pct="30">
+        <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="bg" cx="60" cy="60" r="48"/><circle class="fg" cx="60" cy="60" r="48"/><text class="big" x="60" y="70" text-anchor="middle">−30%</text></svg>
+        <p><b>Waste</b>Waste cut at Greggs while sales rose 20%</p>
+      </div>
+    </div>
+    <div class="tiles">
+      <div><b>26</b><span>people hired myself at Birmingham, none resigned</span></div>
+      <div><b>11</b><span>suppliers and about 180 lines ordered every week</span></div>
+      <div><b>70%</b><span>of disputed delivery refunds recovered</span></div>
+      <div><b>2</b><span>sites where I ran the full payroll</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="financials">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Reading your FY26 annual report</div>
+      <h2>KFC Australia, line by line</h2>
+      <p>A restaurant P&amp;L and a company's segment accounts are built from the same lines. Here is how the FY26 numbers read from the restaurant floor.</p>
+    </div>
+    <div class="fin-box">
+      <table class="fin">
+        <thead><tr><th scope="col">KFC Australia</th><th scope="col">FY25</th><th scope="col">FY26</th><th scope="col">What it means in a restaurant</th></tr></thead>
+        <tbody>
+          <tr><td>Revenue</td><td class="n">A$1,154.2m</td><td class="n">A$1,241.3m</td><td>Up 7.6%, but FY26 ran 53 weeks against 52 and the network grew from 288 to 295 restaurants. Same-store sales, up 2.7%, is the growth that came from existing restaurants.</td></tr>
+          <tr><td>Cost of sales (food and labour)</td><td class="n">48.2%</td><td class="n up">47.9%</td><td>The two lines a restaurant manager moves every shift improved by about 0.3 points of sales.</td></tr>
+          <tr><td>Underlying EBITDA margin</td><td class="n">19.3%</td><td class="n">19.1%</td><td>The margin still eased, so costs outside food and labour grew faster than sales. Every point saved on the floor counts for more.</td></tr>
+          <tr><td>Digital share of sales</td><td class="n">34.2%</td><td class="n up">43.2%</td><td>More than four in ten sales now come through the app, kiosks or delivery, so order accuracy and refund control sit next to counter service.</td></tr>
+          <tr><td>Average sales per restaurant</td><td class="n">about A$4.0m</td><td class="n">about A$4.2m</td><td>Roughly A$79,000 a week across the network in FY26, worked out from revenue and year-end restaurant numbers.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="reads">
+      <div class="read"><b>Labour is the lever</b><p>Removing junior rates for 18 to 20-year-olds is expected to cost about A$1m in FY27, rising to about A$20m a year by FY31. That is roughly 8% of FY26 KFC Australia EBITDA, so rostering skill now shows up in the margin.</p></div>
+      <div class="read"><b>Growth is in-restaurant</b><p>With same-store sales up 4% in the first eight weeks of FY27, Kwench rolling out, and later trading hours, much of the next gain will come from restaurants already open.</p></div>
+      <div class="read"><b>Lines I already run</b><p>At Shake Shack Birmingham I reviewed the site P&amp;L every period, wrote the cost-of-goods report twice a month and ran the payroll. Food, labour and waste are the lines I am used to moving.</p></div>
+    </div>
+    <div class="mba">
+      <b>Where I learned to read accounts</b>
+      <p>In the Aston MBA module Measuring and Enhancing Financial Performance, I wrote a board report on a company's financial statements: return on capital broken into operating margin and asset turn, gross profit per unit, and the working-capital cycle, all benchmarked against industry averages. The second task was a five-year cash-flow appraisal of a new product line, with a positive NPV and a recommendation to invest.</p>
+    </div>
+    <p class="src">Sources: <a href="https://www.collinsfoods.com/wp-content/uploads/2026/06/CKF-Annual-Report-2026.pdf" target="_blank" rel="noopener">Collins Foods Annual Report 2026</a> (segment information, p. 54; review of operations, p. 15). Junior-rate estimate and first eight weeks of FY27 from the FY26 results, as reported in the <a href="https://www.newcastleherald.com.au/story/9301651/fried-chicken-fix-spices-up-job-creation-opening-hours/" target="_blank" rel="noopener">Newcastle Herald</a> and <a href="https://www.raskmedia.com.au/2026/06/30/collins-foods-asxckf-share-price-down-amid-fy26-result-mixed-fy27-trading-update/" target="_blank" rel="noopener">Rask Media</a>. Percentages are my own calculations from the reported figures.</p>
+  </div>
+</section>
+
+<section id="brief" style="background:var(--card)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Your ad, my evidence</div>
+      <h2>What the role asks for</h2>
+      <p>Requirements from the two Restaurant General Manager ads, matched to work I have already done.</p>
+    </div>
+    <div class="brief-box">
+      <table class="brief">
+        <thead><tr><th scope="col">The ad asks for</th><th scope="col">Where I've done it</th></tr></thead>
+        <tbody>
+          <tr><td><q>Rosters, inventory, training, and performance</q><br><span class="fit">Strong</span></td><td>Built the Birmingham rota from its first version. Set daily and weekly forecasts and planned labour, prep and ordering to them. Weekly orders across 11 suppliers.</td></tr>
+          <tr><td><q>Food safety, hygiene and WHS</q><br><span class="fit">Strong</span></td><td>NSF food safety audit 98.71%. 5-star EHO rating. Walked the 13-point travel path every 90 minutes to two hours. Level 2 Food Safety, Fire Marshal and First Aid.</td></tr>
+          <tr><td><q>Boosting sales, managing costs</q><br><span class="fit">Strong</span></td><td>Greggs: sales +20% and waste −30% with no extra resources. Shake Shack: crew labour under 26% of sales against a 30% target, and excess overtime cut by more than 10%.</td></tr>
+          <tr><td><q>Hiring, training, performance management</q><br><span class="fit">Strong</span></td><td>Hired 26 people at Birmingham, none of whom resigned. Trained crew across stations, including the fryers. Handled casework through Croner procedures.</td></tr>
+          <tr><td><q>P&amp;Ls, payroll, and store admin</q><br><span class="fit">Strong</span></td><td>Reviewed the site P&amp;L every period and acted on labour, cost of goods and controllables. Ran the full payroll at Shake Shack and Fresh Bake. Wrote the cost-of-goods report twice a month.</td></tr>
+          <tr><td><q>Systems, reporting, and day-to-day operations</q><br><span class="fit">Strong</span></td><td>POS, stock and labour data read daily. Self-order kiosks. Deliveroo, Uber Eats and Just Eat, with refund disputes run myself. Power BI forecasting at Greggs.</td></tr>
+          <tr><td><q>Handling feedback and turning tough moments into great ones</q><br><span class="fit">Strong</span></td><td>Likelihood to Return 8.1 to 9.3. Went to unhappy guests in person, put it right, logged the cause and followed up.</td></tr>
+          <tr><td><q>A culture that's inclusive</q><br><span class="fit">Strong</span></td><td>Under-18s on my rotas at three sites, scheduled within the limits for young workers. A colleague I nearly let go became Employee of the Month.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="route">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Route so far</div>
+      <h2>Gujarat to Birmingham, then Perth</h2>
+    </div>
+    <div class="route-box"><i class="fill" aria-hidden="true"></i>
+    <ol class="route">
+      <li><b>2018 – 2021</b><strong>Vikram Engineering Works</strong><span>Assistant Operations Manager, Gujarat. 33 staff and zero accidents on a factory floor.</span></li>
+      <li><b>2022 – 2024</b><strong>Greggs</strong><span>Assistant Store Manager, Birmingham. Ran one site and covered two more each week. MBA at Aston alongside.</span></li>
+      <li><b>2024</b><strong>Fresh Bake</strong><span>Assistant Manager, Leicester. Opened a new brand's first store, then ran it alone from June.</span></li>
+      <li><b>2024 – 2025</b><strong>Shake Shack</strong><span>Assistant Operations Manager. Trained at Canary Wharf, then one of four managers who opened Birmingham.</span></li>
+      <li class="next"><b>Next</b><strong>Perth</strong><span>South Lake or Rockingham Beach, as Restaurant General Manager.</span></li>
+    </ol></div>
+  </div>
+</section>
+
+<section id="plan" style="background:var(--card)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">First 90 days</div>
+      <h2>Learn first, then fix</h2>
+      <p>The same four steps I use on every new site.</p>
+    </div>
+    <div class="plan">
+      <div><div class="bar"><i></i></div><b>Days 1 – 15</b><strong>Learn</strong><span>Complete the training, work every station and learn the systems.</span></div>
+      <div><div class="bar"><i></i></div><b>Days 16 – 30</b><strong>Ask why</strong><span>Find out why each process works the way it does before changing anything.</span></div>
+      <div><div class="bar"><i></i></div><b>Days 31 – 60</b><strong>Fix and test</strong><span>Take the bottlenecks one at a time and try changes on real shifts.</span></div>
+      <div><div class="bar"><i></i></div><b>Days 61 – 90</b><strong>Lock in</strong><span>Make what worked the standard, so the team runs it without me.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Questions</div>
+      <h2>Before you call</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Why Collins Foods?</summary>
+        <div class="a">
+          <p>Ownership is written into the Collins Way, and it is how I have run every site: a store does best when its manager runs it as if it were their own.</p>
+          <p>The path is also clear. Collins grows its Restaurant General Managers into Area Coaches, with structured training on the way, and Area or Operations Manager is the step I want after this one.</p>
+        </div>
+      </details>
+      <details>
+        <summary>What will I bring with me?</summary>
+        <div class="a">
+          <ul>
+            <li><b>Rosters and labour:</b> rotas built from scratch for opening crews of 35 to 40 per shift, shift patterns redesigned to cut overtime, and young workers scheduled within their limits.</li>
+            <li><b>Stock and ordering:</b> weekly orders to supplier cut-offs, every delivery checked against its purchase order, stock variances read before they are acted on.</li>
+            <li><b>Food safety:</b> audit-ready every day, from the travel path to temperature checks, with allergen documentation for 85 products behind it.</li>
+            <li><b>People:</b> hiring for energy and attitude, training on every station including the fryers, and fair, documented performance management.</li>
+            <li><b>Numbers:</b> daily and weekly forecasts, the cost-of-goods report, the period P&amp;L review and the full payroll run.</li>
+            <li><b>Digital:</b> self-order kiosks, three delivery platforms and the refund disputes that come with them.</li>
+          </ul>
+        </div>
+      </details>
+      <details>
+        <summary>How would the visa work?</summary>
+        <div class="a">
+          <p>Both ads mention sponsorship. Perth is classed as a regional area for migration, so the role would most likely sit under the Skilled Employer Sponsored Regional visa (subclass 494), as Café or Restaurant Manager.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Will I move to Perth?</summary>
+        <div class="a"><p>Yes. I am based in India and ready to relocate to Perth for South Lake or Rockingham Beach as soon as the visa is granted.</p></div>
+      </details>
+      <details>
+        <summary>When can I start?</summary>
+        <div class="a"><p>Immediately. The only wait is the visa process.</p></div>
+      </details>
+      <details>
+        <summary>Why this move?</summary>
+        <div class="a"><p>Because each step should be bigger than the last. Running a restaurant as its General Manager is the next one.</p></div>
+      </details>
+      <details>
+        <summary>Languages and qualifications</summary>
+        <div class="a">
+          <p>English (fluent), Hindi (fluent) and Gujarati (native). MBA in Operations Management (2:1) from Aston University, including 100% in all five modules of its operations simulation, from managing suppliers to capacity planning and opening a new branch. B.Tech in Mechanical Engineering. Level 2 Food Safety, Fire Marshal and First Aid. I will complete the Food Safety Supervisor course before I start.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap">
+    <h2>South Lake or Rockingham Beach, I'd run it for Collins as if it were my own</h2>
+    <p>urvish.mb@gmail.com · +91 99988 28555 · linkedin.com/in/urvishkumar-badreshiya</p>
+  </div>
+</section>
+</main>
+
+<footer class="foot"><div class="wrap">Personal page. Not affiliated with or endorsed by any employer named here.</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var stops=[[10,30],[11,0],[12,0],[15,0],[22,0],[22,30]];
+  function el(n,a){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);return e;}
+  function pt(deg,r){var a=(deg-90)*Math.PI/180;return [120+r*Math.cos(a),120+r*Math.sin(a)];}
+  function angH(h,m){return ((h%12)+m/60)*30;}
+  // Draw both clocks
+  document.querySelectorAll("[data-clock]").forEach(function(box){
+    var s=el("svg",{viewBox:"0 0 240 240"});
+    s.appendChild(el("circle",{class:"face",cx:120,cy:120,r:112}));
+    for(var i=0;i<60;i++){var major=i%5===0,q=pt(i*6,major?104:106),r=pt(i*6,major?92:100);
+      s.appendChild(el("line",{class:"tick"+(major?"":" minor"),x1:q[0],y1:q[1],x2:r[0],y2:r[1]}));}
+    [12,3,6,9].forEach(function(n){var p=pt(n*30,76);var t=el("text",{class:"num",x:p[0],y:p[1]+5,"text-anchor":"middle"});t.textContent=n;s.appendChild(t);});
+    stops.forEach(function(st,i){var p=pt(angH(st[0],st[1]),98);s.appendChild(el("circle",{class:"dot"+(i===0?" on":""),cx:p[0],cy:p[1],r:6,"data-i":i}));});
+    var hh=el("line",{class:"hand",x1:120,y1:120,x2:120,y2:62});
+    var mh=el("line",{class:"hand-m",x1:120,y1:120,x2:120,y2:40});
+    s.appendChild(mh);s.appendChild(hh);s.appendChild(el("circle",{class:"pin",cx:120,cy:120,r:6}));
+    box.appendChild(s);
+    box._h=hh;box._m=mh;box._dots=s.querySelectorAll(".dot");
+    setHands(box,10,30,false);
+  });
+  function setHands(box,h,m,animate){
+    // hour hand: absolute dial angle; minute hand: minutes since 10:00, so it always turns forward
+    var ha=angH(h,m)+(h>=12?360:0),ma=((h-10)*60+m)*6;
+    if(window.gsap){
+      var o={svgOrigin:"120 120"};
+      if(animate&&!reduce){gsap.to(box._h,Object.assign({rotation:ha,duration:.7,ease:"power3.out"},o));gsap.to(box._m,Object.assign({rotation:ma,duration:.9,ease:"power3.out"},o));}
+      else{gsap.set(box._h,Object.assign({rotation:ha},o));gsap.set(box._m,Object.assign({rotation:ma},o));}
+    }else{
+      box._h.setAttribute("transform","rotate("+ha+" 120 120)");
+      box._m.setAttribute("transform","rotate("+ma+" 120 120)");
+    }
+  }
+
+  // Rings rest filled; the stroke offsets are set here so the page reads correctly without GSAP
+  var C=2*Math.PI*48;
+  document.querySelectorAll(".ring").forEach(function(r){
+    var fg=r.querySelector(".fg"),pct=parseFloat(r.dataset.pct);
+    fg.style.strokeDasharray=C;fg.style.strokeDashoffset=C*(1-pct/100);r._fg=fg;r._off=C*(1-pct/100);
+  });
+
+  var rail=document.querySelector('[data-clock="rail"]');
+  var items=document.querySelectorAll(".phases li");
+  function activate(i){
+    items.forEach(function(li,j){li.classList.toggle("on",j===i);});
+    if(rail){rail._dots.forEach(function(d,j){d.classList.toggle("on",j<=i);});
+      setHands(rail,stops[i][0],stops[i][1],true);}
+  }
+
+  if(!window.gsap||!window.ScrollTrigger){
+    // Without GSAP, still track the active ticket
+    if("IntersectionObserver" in window){
+      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){activate([].indexOf.call(document.querySelectorAll(".ticket"),e.target));}});},{rootMargin:"-45% 0px -45% 0px"});
+      document.querySelectorAll(".ticket").forEach(function(t){io.observe(t);});
+    }
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll(".ticket").forEach(function(t,i){
+    ScrollTrigger.create({trigger:t,start:"top 55%",end:"bottom 55%",onToggle:function(self){if(self.isActive)activate(i);}});
+  });
+
+  if(reduce) return;
+
+  // Hero clock: hands swing once from 10:00 to opening time
+  var hero=document.querySelector('[data-clock="hero"]');
+  if(hero){gsap.from(hero._h,{rotation:angH(9,0),svgOrigin:"120 120",duration:1.1,ease:"power3.out",delay:.2});
+           gsap.from(hero._m,{rotation:0,svgOrigin:"120 120",duration:1.1,ease:"power3.out",delay:.2});}
+  gsap.from(".hero h1, .hero .lede, .hero .cta",{y:18,duration:.7,ease:"power3.out",stagger:.08});
+
+  // Tickets: a short rise as each comes in. They stay fully visible throughout.
+  gsap.utils.toArray(".ticket").forEach(function(t){
+    gsap.from(t,{y:28,duration:.6,ease:"power3.out",scrollTrigger:{trigger:t,start:"top 88%",once:true}});
+  });
+  // Rings fill from a third of their value
+  document.querySelectorAll(".ring").forEach(function(r){
+    gsap.fromTo(r._fg,{strokeDashoffset:C-(C-r._off)*.35},{strokeDashoffset:r._off,duration:1.1,ease:"power2.out",scrollTrigger:{trigger:r,start:"top 85%",once:true}});
+  });
+  // Route line and plan bars draw with scaleX/scaleY
+  var narrow=window.matchMedia("(max-width:960px)").matches;
+  gsap.from(".route-box .fill",{scaleX:narrow?1:0,scaleY:narrow?0:1,ease:"none",scrollTrigger:{trigger:".route",start:"top 80%",end:"bottom 60%",scrub:.6}});
+  gsap.utils.toArray(".bar i").forEach(function(b,i){
+    gsap.from(b,{scaleX:0,duration:.6,ease:"power2.out",delay:i*.15,scrollTrigger:{trigger:".plan",start:"top 85%",once:true}});
+  });
+})();
+</script>
+
+</body>
+</html>
